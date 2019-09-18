@@ -40,9 +40,9 @@ export default {};
   .nav_item
     display flex
     flex 1
+    justify-content center
     flex-direction column
     align-items center
-    margin-top 10px
     &.router-link-active
       color #b4282d
     .item_icon

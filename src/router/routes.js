@@ -4,7 +4,7 @@ import Category from '../pages/Category/Category.vue'
 import General from '../pages/General/General.vue'
 import ShoppingCart from '../pages/ShoppingCart/ShoppingCart.vue'
 import Personal from '../pages/Personal/Personal.vue'
-
+// 注册路由组件
 export default [
   {
     path:'/homepage',
@@ -26,4 +26,8 @@ export default [
     path: '/personal',
     component: Personal
   },
+  {// 重定向到首页
+    path:'/',
+    redirect: '/homepage'
+  }
 ]

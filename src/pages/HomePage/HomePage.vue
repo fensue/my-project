@@ -1,78 +1,295 @@
 <template>
   <div class="homepage_container">
-    <header>
-      <router-link class="logo" to="/homepage"></router-link>
-      <div class="header_search">
-        <i></i>
-        <span>搜索商品,共22673款商品</span>
+    <div class="homepage_header">
+      <header class="header-top">
+        <router-link class="logo" to="/homepage"></router-link>
+        <div class="header_search">
+          <i class="iconfont icon-RectangleCopy"></i>
+          <span>搜索商品,共22673款商品</span>
+        </div>
+        <div class="login_btn">登录</div>
+      </header>
+      <div class="tabbar">
+        <div class="list wrapper">
+          <ul class="content">
+          <li class="item active">推荐</li>
+          <li class="item">居家生活</li>
+          <li class="item">服饰鞋包</li>
+          <li class="item">美食酒水</li>
+          <li class="item">个护清洁</li>
+          <li class="item">母婴亲子</li>
+          <li class="item">运动旅行</li>
+          <li class="item">数码家电</li>
+          <li class="item">全球特色</li>
+          </ul>
+        </div>
+        <div class="btmrow">
+          <i class="iconfont icon-RectangleCopy2"></i>
+        </div>
       </div>
-      <div class="login_btn">登录</div>
-    </header>
-    <div class="tabbar">
-      <div class="list">
-        <span class="item">推荐</span>
-        <span class="item">居家生活</span>
-        <span class="item">服饰鞋包</span>
-        <span class="item">美食酒水</span>
-        <span class="item">个护清洁</span>
-        <span class="item">母婴亲子</span>
-        <span class="item">运动旅行</span>
-        <span class="item">数码家电</span>
-        <span class="item">全球特色</span>
+    </div>
+    <div class="homepage-content">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./images/swiper/1.jpg" alt />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/swiper/2.jpg" alt />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/swiper/3.jpg" alt />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/swiper/4.jpg" alt />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/swiper/7.jpg" alt />
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="tips">
+      <div class="tips-item">
+        <i class="iconfont icon-RectangleCopy7"></i>
+        <span>网易自营品牌</span>
+      </div>
+      <div class="tips-item">
+        <i class="iconfont icon-RectangleCopy1"></i>
+        <span>30天无忧退货</span>
+      </div>
+      <div class="tips-item">
+        <i class="iconfont icon-RectangleCopy5"></i>
+        <span>48小时极速退款</span>
+      </div>
+    </div>
+    <div class="homepage-category">
+      <ul class="category-list">
+        <li>
+          <img src="./images/category/1.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/2.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/3.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/4.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/5.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/3.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/7.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/8.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/9.png" alt="">
+          <span>新品首发</span>
+        </li>
+        <li>
+          <img src="./images/category/10.gif" alt="">
+          <span>新品首发</span>
+        </li>
+      </ul>
+    </div>
+    <div >
+      
+    </div>
     </div>
   </div>
 </template>
 
 <script>
+import Swiper from "swiper";
+// require styles swiper样式
+import "swiper/dist/css/swiper.css";
+import BScroll from 'better-scroll'
 export default {
-  name: 'HomePage'
+  name: "HomePage",
+  data() {
+    return {};
+  },
+  mounted() {
+    this._initBscroll()
+    this.$nextTick(() => {
+      /* eslint-disable no-new */
+      new Swiper(".swiper-container", {
+        loop: true, // 循环模式选项
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination"
+        }
+      });
+    });
+    // let scroll = new BScroll('.wrapper')
+
+  },
+  methods: {
+    _initBscroll(){
+      // this.scrollLeft = new BScroll(".menu-wrapper");
+      let scroll = new BScroll('.wrapper')
+    }
+  }
 };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+@import '../../common/stylus/mixins.styl'
 .homepage_container
-  header 
-    width 100%
-    height 56px
-    display flex
-    align-items center
-    background-color #fff
-    padding 16px 30px 
-    .logo
-      width 138px
-      height 40px
-      background-image url('//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png')
-      background-repeat no-repeat
-      padding-right 20px
-    .header_search
-      width 442px
+  width 100%
+  min-height 100%
+  .homepage_header
+    .header-top
+      width 100%
       height 56px
-      background-color #ededed
-      border-radius 10px
       display flex
       align-items center
-      margin 0 aotu 
-      span 
-        font-size 30px
-        color #666
+      background-color #fff
+      padding 16px 30px
+      .logo
+        width 138px
+        height 40px
+        background-image url('//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png')
+        background-repeat no-repeat
+        padding-right 20px
+      .header_search
+        width 442px
+        height 56px
+        background-color #ededed
+        border-radius 10px
         display flex
-        margin 0 auto
-    .login_btn
-      margin-left 16px
-      padding 8px 16px
-      border 1px solid red
-      font-size 20px
-      color red
-      border-radius 10px
-  .tabbar
-    background-color #fff
-    width 100%
-    .list
-      display flex
-      .item
-        width 120px
+        align-items center
+        margin 0 aotu
+        i 
+          font-size 36px
+          margin-left 36px
+        span
+          font-size 30px
+          color #666
+          display flex
+          margin-left 0
+      .login_btn
+        margin-left 16px
+        padding 8px 16px
+        border 1px solid red
+        font-size 20px
+        color red
+        border-radius 10px
+    .tabbar
+      width 100%
+      height 60px
+      background-color #fff
+      position relative
+      overflow hidden
+      clear()
+      .list
+        clear()
+        ul
+          clear()
+          .item
+            clear()
+            float left
+            width 140px
+            height 60px
+            font-size 30px
+            line-height 60px
+            color #333
+            text-align center
+            &.active
+              color #b4282d
+              &:after
+                content ''
+                display block
+                width 80px
+                height 5px
+                background #b4282d
+                margin-top -5px
+                margin-left 28px
+                border-radius 5px
+      .btmrow
+        width 180px
         height 60px
-        font-size 28px
-        flex-wrap nowrap
+        background #fff
+        position absolute
+        right 0
+        bottom 0
+        i 
+          font-size 70px
+          line-height 60px
+          float right
+          margin-right 30px
+  .homepage-content       
+    .swiper-container
+      width 100%
+      height 370px
+      position relative
+      .swiper-wrapper
+        width 100%
+        height 100%
+        .swiper-slide
+          width 100%
+          height 100%
+          img 
+            width 100%
+            height 100%
+      .swiper-pagination
+        position absolute
+        left 0
+        right 0
+        margin 0 auto 
+        bottom 10px
+        span 
+          width 30px
+          height 5px
+          background-color white
+          border-radius 3px
+          &.swiper-pagination-bullet-active
+            background-color white
+    .tips
+      width 750px
+      height 72px
+      padding 0 30px
+      display flex
+      align-items center
+      .tips-item
+        display flex
+        flex 1
+        i 
+          font-size 30px
+          color #BE4448
+          margin-right 10px
+    .homepage-category
+      width 100%
+      height 341px
+      .category-list
+        display flex
+        flex-wrap wrap
+        li
+          width 110px
+          height 156px
+          margin 10px 20px 9px
+          text-align center
+          img 
+            width 110px
+            height 110px
+            margin-bottom 10px
+          span 
+            font-size 24px
+            color #333
+
 </style>
