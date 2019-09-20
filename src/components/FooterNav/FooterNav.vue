@@ -37,6 +37,7 @@ export default {};
   bottom 0
   display flex
   background-color #fff
+  border-top 1px solid #ccc
   .nav_item
     display flex
     flex 1

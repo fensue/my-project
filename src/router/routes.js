@@ -5,29 +5,41 @@ import General from '../pages/General/General.vue'
 import ShoppingCart from '../pages/ShoppingCart/ShoppingCart.vue'
 import Personal from '../pages/Personal/Personal.vue'
 // 注册路由组件
-export default [
-  {
-    path:'/homepage',
-    component: HomePage
+export default [{
+    path: '/homepage',
+    component: HomePage,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path: '/category',
-    component: Category
+    component: Category,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path: '/general',
-    component: General
+    component: General,
+    meta: {
+      showFooter: true
+    }
+
   },
   {
     path: '/shoppingcart',
-    component: ShoppingCart
+    component: ShoppingCart,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path: '/personal',
     component: Personal
   },
-  {// 重定向到首页
-    path:'/',
+  { // 重定向到首页
+    path: '/',
     redirect: '/homepage'
   }
 ]
